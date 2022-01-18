@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{%block titulo%} Cadastro | {%endblock%}
+
+{% block conteudo %}
+<h1 class="mt-0.5 mb-3" style="1">
+    <font size="5">Cadastro</font>
+</h1>
+
+<form method="POST" action="{% url 'cadastro' %}">
+    {% include 'parciais/_messages.html' %}
+    {% csrf_token %}
+  <div class="form-group">
+    <label>
+        <font size="2">Nome</font>
+    </label>
+    <input type="text" name="nome" value="{{request.POST.nome}}" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>
+        <font size="2">Sobrenome</font>
+    </label>
+    <input type="text" name="sobrenome" value="{{request.POST.sobrenome}}" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>
+        <font size="2">Email</font>
+    </label>
+    <input type="email" name="email" value="{{request.POST.email}}" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>
+        <font size="2">Usuário</font>
+    </label>
+    <input type="text" name="usuario" value="{{request.POST.usuario}}" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>
+        <font size="2">Senha</font>
+    </label>
+    <input type="password" name="senha" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>
+        <font size="2">Repetir a senha</font>
+    </label>
+    <input type="password" name="senha2" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+{% endblock %}
